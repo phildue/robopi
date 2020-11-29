@@ -6,7 +6,7 @@
 <arg name="gui" default="true"/>
 <arg name="headless" default="false"/>
 <arg name="debug" default="false"/>
-<arg name="model" default="$(find diff_drive)/urdf/robopi.urdf.xacro"/>
+<arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
 <!-- We resume the logic in empty_world.launch -->
 
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -20,6 +20,6 @@
 <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 
 <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-  args="-z 1.0 -unpause -urdf -model Diff_Drive -param robot_description"/>
+  args="-z 1.0 -unpause -urdf -model robopi -param robot_description"/>
  
 </launch>

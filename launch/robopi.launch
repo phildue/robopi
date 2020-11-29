@@ -1,11 +1,13 @@
 <launch>
 
-<arg name="model" default="$(find diff_drive)/urdf/02-diff_drive.urdf.xacro"/>
+<arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
 <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz"/>
 
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
-<include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>
+
+<!-- TODO: enable automatic start
+<include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>-->
 
 <!-- convert joint states to TF transforms for rviz, etc -->
 <param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
@@ -14,7 +16,7 @@
 </node>
 
 <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-  <param name="default_topic" value="/Diff_Drive/diff_drive_controller/cmd_vel"/> 
+  <param name="default_topic" value="/robopi/diff_drive_controller/cmd_vel"/>
 </node>
 
 </launch>
