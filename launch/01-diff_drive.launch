@@ -5,6 +5,7 @@
 
 
 <!-- Launch gazebo -->
+
 <include file="$(find diff_drive)/launch/gazebo.launch">
   <arg name="model" value="$(arg model)"/>
  </include>
@@ -17,10 +18,10 @@
 
 <rosparam file="$(find diff_drive)/config/diff_drive.yaml" command="load"/>
 
-<rosparam file="$(find diff_drive)/config/hardware.yaml" command="load"/>
+<rosparam file="$(find robopi_hardware_interface)/config/hardware.yaml" command="load"/>
 
 <arg name="node_start_delay" default="5.0" />
-<node name="actuator_interface" pkg="diff_drive" type="actuator_interface_node" output="screen"/>
+<node name="actuator_interface" pkg="robopi_hardware_interface" type="actuator_interface_node" output="screen"/>
 <!-- load the controllers -->
 <node name="robot_arm_controller_spawner" pkg="controller_manager" type="spawner"
   respawn="true" output="screen" 

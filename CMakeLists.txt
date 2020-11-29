@@ -136,33 +136,10 @@ include_directories(
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-set(COMPILE_FOR_PI OFF)
-add_subdirectory(src/hal/pi-ln298n)
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/diff_drive_node.cpp)
-add_executable(actuator_interface_node src/hal/actuators/actuator_interface_node.cpp src/hal/actuators/ActuatorInterfaceEffort.cpp src/hal/actuators/ActuatorInterfaceEffort.h src/hal/actuators/ActuatorInterfaceVelocity.h src/hal/actuators/ActuatorInterfaceVelocity.cpp)
-add_executable(test_publisher_node src/hal/actuators/test_publisher_node.cpp)
-add_executable(gpio_motor_node src/hal/actuators/gpio_motor_node.cpp)
-add_executable(motor_cmd_pub_node src/hal/actuators/motor_cmd_pub_node.cpp)
-
-target_link_libraries(actuator_interface_node
-        ${catkin_LIBRARIES}
-        pi_ln298n
-        )
-target_link_libraries(test_publisher_node
-        ${catkin_LIBRARIES}
-        pi_ln298n
-        )
-target_link_libraries(gpio_motor_node
-        ${catkin_LIBRARIES}
-        pi_ln298n
-        )
-target_link_libraries(motor_cmd_pub_node
-        ${catkin_LIBRARIES}
-        pi_ln298n
-        )
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
