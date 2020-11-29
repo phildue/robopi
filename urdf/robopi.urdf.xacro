@@ -153,11 +153,11 @@
  <transmission name="${prefix}_${suffix}_wheel_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <actuator name="${prefix}_${suffix}_wheel_motor">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
       <joint name="${prefix}_${suffix}_wheel_joint">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>VelocityJointInterface</hardwareInterface>
       </joint>
  </transmission>
 </xacro:macro>

@@ -3,9 +3,16 @@
 <arg name="model" default="$(find diff_drive)/urdf/02-diff_drive.urdf.xacro"/>
 <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz"/>
 
+<!-- Launch gazebo -->
+<include file="$(find diff_drive)/launch/gazebo.launch">
+  <arg name="model" value="$(arg model)"/>
+ </include>
+
+
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
-<include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>
+
+<include file="$(find robopi_low_level_control)/launch/low_level_control_sim.launch"/>
 
 <!-- convert joint states to TF transforms for rviz, etc -->
 <param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
