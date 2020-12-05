@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot name="robopi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- /////////////////////////////////////////////////////////////////-->
+
+    <!-- Include materials-->
+
+    <material name="Black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+
+    <material name="White">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+    </material>
+
+    <!-- /////////////////////////////////////////////////////-->
+
+    <!-- constants -->
+    <xacro:property name="deg_to_rad" value="0.017453"/>
+    <xacro:property name="PI" value="3.14"/>
+
+    <!-- /////////////////////////////////////////////////////-->
+    <xacro:macro name="cylinder_inertia" params ="m r h">
+        <inertial>
+            <mass value="${m}"/>
+            <inertia ixx="${m*(3*r*r+h*h)/12}"  ixy="0.0" ixz="0.0"
+                     iyy="${m*(3*r*r+h*h)/12}"  iyz= "0.0"
+                     izz="${m*r*r/2}"/>
+        </inertial>
+    </xacro:macro>
+
+    <!-- ///////////////////////////////////////////////////-->
+
+    <xacro:macro name= "inertial_matrix" params="mass">
+        <inertial>
+            <mass value="${mass}"/>
+            <inertia ixx="1.0" ixy="0.0"
+                     iyy="1.0" iyz="0.0"
+                     izz="1.0" ixz="0.0"/>
+        </inertial>
+    </xacro:macro>
+</robot>

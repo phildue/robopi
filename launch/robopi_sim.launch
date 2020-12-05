@@ -1,6 +1,6 @@
 <launch>
 
-<arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
+<arg name="model" default="$(find robopi)/urdf/sim/robopi_sim.urdf.xacro"/>
 <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz"/>
 
 <!-- Launch gazebo -->

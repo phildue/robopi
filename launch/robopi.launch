@@ -1,6 +1,6 @@
 <launch>
 
-<arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
+<arg name="model" default="robopi_real.urdf.xacro"/>
 <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz"/>
 
 <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>

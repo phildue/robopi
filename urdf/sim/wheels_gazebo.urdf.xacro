@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot name="robopi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="wheel_gazebo" params= "prefix suffix">
+
+        <gazebo reference ="${prefix}_${suffix}_wheel1">
+            <material>Gazebo/Black</material>
+            <turnGravityOff>false</turnGravityOff>
+        </gazebo>
+
+        <gazebo reference ="${prefix}_${suffix}_wheel">
+            <mu1 value="200.0"/>
+            <mu2 value="100.0"/>
+            <kp value="10000000.0"/>
+            <kd value= "1.0"/>
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+    </xacro:macro>
+
+    <xacro:wheel_gazebo prefix="right" suffix="front"/>
+    <xacro:wheel_gazebo prefix="right" suffix="back"/>
+    <xacro:wheel_gazebo prefix="left" suffix="front"/>
+    <xacro:wheel_gazebo prefix="left" suffix="back"/>
+
+</robot>

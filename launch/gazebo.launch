@@ -6,7 +6,7 @@
 <arg name="gui" default="true"/>
 <arg name="headless" default="false"/>
 <arg name="debug" default="false"/>
-<arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
+<arg name="model" default="$(arg model)"/>
 <!-- We resume the logic in empty_world.launch -->
 
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
