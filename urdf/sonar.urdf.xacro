@@ -10,10 +10,7 @@
             </geometry>
             <material name="Black"/>
         </visual>
-
-
     </link>
-
     <joint name="sonar_front_joint" type="fixed">
         <origin xyz="0.07 0 0.08" rpy="0 0 0"/>
         <parent link="chassis"/>
