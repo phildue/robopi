@@ -1,23 +1,24 @@
 <launch>
 
-<arg name="model" default="robopi_real.urdf.xacro"/>
-<arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz"/>
+  <arg name="model" default="robopi.urdf.xacro"/>
+  <arg name="rvizconfig" default="$(find robopi)/config/rviz.rviz"/>
 
-<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
 
-<!-- TODO: enable automatic start
-<include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>-->
+  <!-- TODO: enable automatic start
+  <include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>-->
+  <include file="$(find robopi)/launch/map.launch"/>-->
 
-<!-- convert joint states to TF transforms for rviz, etc -->
-<param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
-<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-    respawn="false" output="screen">
-</node>
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+  </node>
 
-<node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
-  <param name="default_topic" value="/robopi/diff_drive_controller/cmd_vel"/>
-</node>
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/robopi/diff_drive_controller/cmd_vel"/>
+  </node>
 
 </launch>
 
