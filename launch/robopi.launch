@@ -8,7 +8,7 @@
 
   <!-- TODO: enable automatic start
   <include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>-->
-  <include file="$(find robopi)/launch/map.launch"/>-->
+  <include file="$(find robopi)/launch/move_base.launch"/>-->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
