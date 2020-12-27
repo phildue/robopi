@@ -6,19 +6,21 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
 
-  <!-- TODO: enable automatic start
-  <include file="$(find robopi_low_level_control)/launch/low_level_control.launch"/>-->
-  <include file="$(find robopi)/launch/move_base.launch"/>-->
+  <!-- TODO: enable automatic start on pi
+  <include file="$(find robopi_low_level)/launch/low_level.launch"/>-->
+
+  <include file="$(find robopi)/launch/move_base.launch"/>
+  <!--<include file="$(find robopi)/launch/vision.launch"/>-->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <param name="robot_description" command="rosrun xacro xacro $(arg model)"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen">
   </node>
-
+<!--
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/robopi/diff_drive_controller/cmd_vel"/>
-  </node>
+  </node>-->
 
 </launch>
 

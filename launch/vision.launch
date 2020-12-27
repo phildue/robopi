@@ -1,4 +1,12 @@
 <launch>
+    <rosparam file="$(find robopi)/config/stereo.yaml" command="load" />
+
+    <node type="stereo_image_proc" pkg="stereo_image_proc" name="stereo" ns="cam_stereo">
+    <rosparam file="$(find robopi)/config/stereo.yaml" command="load" />
+    </node>
+    <node pkg="tf" type="static_transform_publisher" name="cam_to_optical" args="0 0 0 -1.57 0 -1.57 cam_stereo left_camera_optical 1"/>
+
+    <!--
     <arg name="camera_pitch" default="0.0"/>
     <arg name="camera_height" default="0.1"/>
     <arg name="node_start_delay" default="5.0" />
@@ -25,5 +33,5 @@
         <param name="odom_frame_id" value="visual_odom"/>
     </node>
     <node pkg="tf" type="static_transform_publisher" name="odom_to_map" args="0 0 0 0 -1.57079632679 -1.57079632679 visual_odom map 30"/>
-    <node pkg="tf" type="static_transform_publisher" name="baselink_to_cam" args="0 0 0.1 0 0 0 base_link head_camera 30"/>
+    <node pkg="tf" type="static_transform_publisher" name="baselink_to_cam" args="0 0 0.1 0 0 0 base_link head_camera 30"/>-->
 </launch>
