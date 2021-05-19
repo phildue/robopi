@@ -6,7 +6,7 @@
     <xacro:property name="chassis_width" value=".19"/>
     <xacro:property name="chassis_height" value="0.070"/>
 
-    <link name="chassis">
+    <link name="base_link">
         <visual>
             <origin rpy="-${PI/2} 0 ${PI/2}" xyz="0 0 0"/>
             <geometry>

@@ -154,7 +154,11 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+# add_executable(depth_cloud_filter src/depth_cloud_filter_node.cpp)
 
+#target_link_libraries(depth_cloud_filter
+#        ${catkin_LIBRARIES}
+#        )
 #############
 ## Install ##
 #############

@@ -4,13 +4,13 @@ footprint: [[ 0.3,  0.3], [-0.3,  0.3], [-0.3, -0.3], [ 0.3, -0.3]]
 footprint_padding: 0.03
 
 
-plugins:
-  - {name: sonar,             type: "range_sensor_layer::RangeSensorLayer"}
-  - {name: obstacles,        type: "costmap_2d::ObstacleLayer"}
-  - {name: inflation,         type: "costmap_2d::InflationLayer"}
+#plugins:
+#  - {name: sonar,             type: "range_sensor_layer::RangeSensorLayer"}
+#  - {name: obstacles,        type: "costmap_2d::ObstacleLayer"}
+#  - {name: inflation,         type: "costmap_2d::InflationLayer"}
 
-inflation:
-  inflation_radius: 0.1
+#inflation:
+#  inflation_radius: 0.1
 
 sonar:
   frame: sonar_front

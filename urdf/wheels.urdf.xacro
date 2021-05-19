@@ -22,7 +22,7 @@
 
     <xacro:macro name="wheel" params= "prefix suffix X Y Z">
       <link name= "${prefix}_${suffix}_wheel">
-        <visual>
+       <visual>
          <origin rpy= "${PI/2} 0 0" xyz= "0 0 0"/>
          <geometry><cylinder length="${wheel_width}" radius= "${wheel_radius/5}"/></geometry>
          <material name= "Black"/>
@@ -54,7 +54,7 @@
       </joint>
 
     <joint name="${prefix}_${suffix}_wheel_joint" type="continuous">
-      <parent link= "chassis"/>
+      <parent link= "base_link"/>
       <child link= "${prefix}_${suffix}_wheel"/>
       <origin xyz= "${0.062*X-0.058*Y} ${(chassis_len/2+0.02)*Z}  0.015" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
@@ -74,9 +74,11 @@
      </transmission>
     </xacro:macro>
 
-    <xacro:wheel prefix="right" suffix="front" X="1" Y="0" Z="-1"/>
-    <xacro:wheel prefix="right" suffix="back" X="0" Y="1" Z="-1"/>
-    <xacro:wheel prefix="left" suffix="front" X="1" Y="0" Z="1"/>
-    <xacro:wheel prefix="left" suffix="back" X="0" Y="1" Z="1"/>
+    <xacro:wheel prefix="right" suffix="" X="0" Y="1" Z="-1"/>
+    <xacro:wheel prefix="left" suffix="" X="0" Y="1" Z="1"/>
+   <!-- <xacro:wheel prefix="right" suffix="front" X="1" Y="1" Z="-1"/>
+     <xacro:wheel prefix="left" suffix="front" X="1" Y="1" Z="1"/>-->
+
+
 
 </robot>

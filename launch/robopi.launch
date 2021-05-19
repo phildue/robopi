@@ -1,13 +1,17 @@
 <launch>
+    <arg name="start_hardware_interface" default="false"/>
 
-  <arg name="model" default="robopi.urdf.xacro"/>
+  <arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
   <arg name="rvizconfig" default="$(find robopi)/config/rviz.rviz"/>
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
 
 
-  <!-- TODO: enable automatic start on pi
-  <include file="$(find robopi_low_level)/launch/low_level.launch"/>-->
+  <!-- TODO: enable automatic start on pi-->
+  <include file="$(find robopi_low_level)/launch/low_level.launch">
+      <arg name="start_hardware_interface" value="$(arg start_hardware_interface)"/>
+
+  </include>
 
   <include file="$(find robopi)/launch/move_base.launch"/>
   <!--<include file="$(find robopi)/launch/vision.launch"/>-->
