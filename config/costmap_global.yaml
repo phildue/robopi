@@ -8,4 +8,5 @@ global_costmap:
   width: 20
   height: 20
   rolling_window: true
+  resolution: 0.05
 
