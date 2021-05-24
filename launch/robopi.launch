@@ -1,10 +1,11 @@
 <launch>
     <arg name="start_hardware_interface" default="false"/>
+    <arg name="start_move_base" default="false"/>
 
   <arg name="model" default="$(find robopi)/urdf/robopi.urdf.xacro"/>
   <arg name="rvizconfig" default="$(find robopi)/config/rviz.rviz"/>
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>
+<!--  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)"/>-->
 
 
   <!-- TODO: enable automatic start on pi-->
@@ -12,8 +13,9 @@
       <arg name="start_hardware_interface" value="$(arg start_hardware_interface)"/>
 
   </include>
-
-  <include file="$(find robopi)/launch/move_base.launch"/>
+    <group if="$(eval arg('start_move_base') == true)">
+        <include file="$(find robopi)/launch/move_base.launch"/>
+    </group>
   <!--<include file="$(find robopi)/launch/vision.launch"/>-->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
