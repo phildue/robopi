@@ -12,6 +12,7 @@ Panels:
         - /Image1
         - /Image2
         - /PointCloud21
+        - /Pose1
       Splitter Ratio: 0.5
     Tree Height: 317
   - Class: rviz/Selection
@@ -32,7 +33,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Image
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -68,56 +69,33 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         cam_stereo:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chassis:
+        left__wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_back_wheel:
+        left__wheel1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        right__wheel:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        left_back_wheel1:
+        right__wheel1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
-        left_front_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_front_wheel1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_back_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_back_wheel1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_front_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_front_wheel1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         sonar_front:
           Alpha: 1
           Show Axes: false
@@ -134,29 +112,19 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        base_link:
+          Value: true
         cam_stereo:
           Value: true
-        chassis:
+        left__wheel:
           Value: true
-        left_back_wheel:
-          Value: true
-        left_back_wheel1:
-          Value: true
-        left_camera_optical:
-          Value: true
-        left_front_wheel:
-          Value: true
-        left_front_wheel1:
+        left__wheel1:
           Value: true
         odom:
           Value: true
-        right_back_wheel:
+        right__wheel:
           Value: true
-        right_back_wheel1:
-          Value: true
-        right_front_wheel:
-          Value: true
-        right_front_wheel1:
+        right__wheel1:
           Value: true
         sonar_front:
           Value: true
@@ -168,21 +136,14 @@ Visualization Manager:
       Show Names: true
       Tree:
         odom:
-          chassis:
+          base_link:
             cam_stereo:
-              left_camera_optical:
+              {}
+            left__wheel:
+              left__wheel1:
                 {}
-            left_back_wheel:
-              left_back_wheel1:
-                {}
-            left_front_wheel:
-              left_front_wheel1:
-                {}
-            right_back_wheel:
-              right_back_wheel1:
-                {}
-            right_front_wheel:
-              right_front_wheel1:
+            right__wheel:
+              right__wheel1:
                 {}
             sonar_front:
               {}
@@ -281,9 +242,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 4096
       Min Color: 0; 0; 0
-      Min Intensity: 0
       Name: PointCloud2
       Position Transformer: XYZ
       Queue Size: 10
@@ -296,6 +255,70 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: false
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/TrajectoryPlannerROS/global_plan
+      Unreliable: false
+      Value: false
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: false
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Queue Size: 10
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic: /move_base/TrajectoryPlannerROS/local_plan
+      Unreliable: false
+      Value: false
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz/Pose
+      Color: 255; 25; 0
+      Enabled: false
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Pose
+      Queue Size: 10
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic: /move_base/current_goal
+      Unreliable: false
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -324,7 +347,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 10.753194808959961
+      Distance: 8.106096267700195
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -340,9 +363,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7547965049743652
+      Pitch: 0.4897971749305725
       Target Frame: <Fixed Frame>
-      Yaw: 0.6535757780075073
+      Yaw: 0.023578185588121414
     Saved: ~
 Window Geometry:
   Displays:
