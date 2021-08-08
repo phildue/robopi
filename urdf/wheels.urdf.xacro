@@ -2,7 +2,7 @@
        xmlns:xacro="http://www.ros.org/wiki/xacro"
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
-    <xacro:property name="wheel_radius" value="0.055"/>
+    <xacro:property name="wheel_radius" value="0.0125"/>
     <xacro:property name="wheel_width" value="0.022"/>
     <xacro:property name="wheel_height" value="0.11"/>
     <xacro:property name="wheel_mass" value=".2"/>
